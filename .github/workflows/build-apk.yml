@@ -24,21 +24,23 @@ jobs:
         distribution: 'temurin'
         java-version: 17
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
+    - name: Install All Dependencies
+      run: |
+        npm install --legacy-peer-deps
+        npm install --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/android
 
-    - name: Install Dependencies
-      run: npm install --legacy-peer-deps
-
-    - name: Build Web Assets & Sync
+    - name: Clean and Rebuild Android Project
       run: |
         npm run build
+        rm -rf android
+        npx cap add android
         npx cap sync android
 
     - name: Build Debug APK
       run: |
         cd android
-        gradle assembleDebug --no-daemon
+        chmod +x gradlew
+        ./gradlew assembleDebug --no-daemon
 
     - name: Upload APK
       uses: actions/upload-artifact@v4

@@ -1,0 +1,6 @@
+{
+  "name": "Zahid Hisab Book",
+  "description": "Offline-first shop ledger and accounting app for Zahid Mobiles and Photo State, featuring EasyPaisa, JazzCash, Bank, Cash in Hand, customer khata, commission tracking, and Urdu support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Zahid Hisab Book",
+  "short_name": "ZahidHisab",
+  "description": "Offline-first shop ledger and accounting app for Zahid Mobiles and Photo State.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

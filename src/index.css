@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Urdu RTL styling adjustments */
+  [dir="rtl"] {
+    font-family: 'Noto Nastaliq Urdu', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: normal;
+    line-height: 1.8;
+  }
+
+  [dir="rtl"] input,
+  [dir="rtl"] textarea,
+  [dir="rtl"] select {
+    text-align: right;
+  }
+
+  /* English LTR styling */
+  [dir="ltr"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* ========================================================
+   THEME PALETTE SYSTEM: DARK (Default) & LIGHT MODE
+   ======================================================== */
+
+/* LIGHT MODE OVERRIDES */
+html.light,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Neutrals: Invert Slate for Light Theme */
+  --color-slate-950: #f8fafc; /* Canvas / Body Background: soft off-white */
+  --color-slate-900: #ffffff; /* Card / Surface: pure clean white */
+  --color-slate-800: #e2e8f0; /* Crisp borders & dividers */
+  --color-slate-700: #cbd5e1; /* Secondary borders */
+  --color-slate-600: #475569; /* Intermediate text */
+  --color-slate-500: #64748b; /* Muted text / placeholder */
+  --color-slate-400: #64748b; /* Secondary labels */
+  --color-slate-300: #334155; /* Form labels / prominent secondary */
+  --color-slate-200: #1e293b; /* Emphasized text */
+  --color-slate-100: #0f172a; /* Body text: deep dark slate */
+  --color-white: #0f172a;     /* Headings & key titles: dark slate */
+
+  /* Readable high-contrast status colors for Light background */
+  --color-emerald-400: #059669; /* Darker emerald for WCAG AA readability */
+  --color-emerald-300: #047857;
+  --color-rose-400: #dc2626;    /* Darker red for contrast */
+  --color-rose-300: #b91c1c;
+  --color-amber-400: #d97706;   /* Rich amber for contrast */
+  --color-amber-300: #b45309;
+  --color-teal-400: #0d9488;
+  --color-sky-400: #0284c7;
+  --color-blue-400: #2563eb;
+  --color-green-400: #16a34a;
+}
+
+/* Base Body background & text adjustment */
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Preserve pure white text on solid colored buttons & badges in light mode */
+html.light button.bg-emerald-600,
+html.light button.bg-rose-600,
+html.light button.bg-teal-600,
+html.light .bg-emerald-600,
+html.light .bg-rose-600,
+html.light [class*="bg-emerald-600"],
+html.light [class*="bg-rose-600"],
+html.light [class*="from-emerald-600"] {
+  color: #ffffff !important;
+}
+
+html.light [class*="bg-emerald-600"] *,
+html.light [class*="bg-rose-600"] *,
+html.light [class*="from-emerald-600"] * {
+  color: #ffffff !important;
+}
+
+/* Light mode card elevation & borders */
+html.light .bg-slate-900 {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Light mode form inputs & selects */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 1px #059669;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Floating FAB center button border in Light Mode */
+html.light nav button.w-13,
+html.light nav button[class*="rounded-full"] {
+  border-color: #f8fafc !important;
+}
+
+/* Light Mode Fixed Backdrop overlay */
+html.light .fixed.bg-slate-950\/85,
+html.light .fixed.bg-slate-950\/80 {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+}
+
+/* Light Mode modal inner cards/boxes */
+html.light .fixed > div .bg-slate-950,
+html.light .fixed > div .bg-slate-950\/80,
+html.light .fixed > div .bg-slate-950\/70,
+html.light .fixed > div .bg-slate-950\/60 {
+  background-color: #f1f5f9 !important;
+}
+
+/* Light Mode Gradients */
+html.light .from-slate-900 {
+  --tw-gradient-from: #ffffff var(--tw-gradient-from-position) !important;
+}
+html.light .via-slate-900 {
+  --tw-gradient-via: #ffffff var(--tw-gradient-via-position) !important;
+}
+html.light .to-emerald-950\/40 {
+  --tw-gradient-to: rgba(236, 253, 245, 0.8) var(--tw-gradient-to-position) !important;
+}
+html.light .to-amber-950\/30 {
+  --tw-gradient-to: rgba(254, 243, 199, 0.8) var(--tw-gradient-to-position) !important;
+}
+
+/* Custom scrollbars - Dark (default) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Custom scrollbars - Light */
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print styles for daily reports & receipts */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
